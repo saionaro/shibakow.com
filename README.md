@@ -1,2 +1,1 @@
-# shibakow.ru
-Personal page
+# Personal page
