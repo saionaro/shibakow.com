@@ -13,7 +13,7 @@ const pathsToClean = [
 ];
 
 const cleanOptions = {
-   exclude:  ['manifest.json', 'icons', 'img'],
+   exclude:  ['manifest.json', 'keybase.txt', 'icons', 'img'],
 };
 
 module.exports = {
