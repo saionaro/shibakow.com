@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/shibakow
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://shibakow.ru
+  * I am shibakow (https://keybase.io/shibakow) on keybase.
+  * I have a public key ASArcoqDadaKO4CNaMyyx_lUY0Bry7eyUfP79XYc_sQZ8Qo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01202b728a8369d68a3b808d68ccb2c7f95463406bcbb7b251f3fbf5761cfec419f10a",
+      "host": "keybase.io",
+      "kid": "01202b728a8369d68a3b808d68ccb2c7f95463406bcbb7b251f3fbf5761cfec419f10a",
+      "uid": "7824c2314e3a32889d20047261a37e19",
+      "username": "shibakow"
+    },
+    "merkle_root": {
+      "ctime": 1523176062,
+      "hash": "e655749956e72cf5370ce90c8ca3d271e40c1c74f69a0190dae648705d4de28d460c2a18156ea20e2573f72ee0abcbbd549c977e78dc36e882835aa824f4971e",
+      "hash_meta": "0ee78b12e0f2ed66e7ec1c51fffe989455765cba0cacf70e1ea6a2066edaab22",
+      "seqno": 2353956
+    },
+    "service": {
+      "entropy": "Qy6upBvDq2bVRVqVs7i3da0v",
+      "hostname": "shibakow.ru",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.47"
+  },
+  "ctime": 1523176119,
+  "expire_in": 504576000,
+  "prev": "35fbd15d654c519c38ec15c24d23f5e3655cdf91be879ff3b04edc17e236ad84",
+  "seqno": 10,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgK3KKg2nWijuAjWjMssf5VGNAa8u3slHz+/V2HP7EGfEKp3BheWxvYWTESpcCCsQgNfvRXWVMUZw47BXCTSP142Vc35G+h5/zsE7cF+I2rYTEILQOLeoRUPm4dk1+PY3Qk8ydnlQ47yyaOha05H5pr5BHAgHCo3NpZ8RA4Dv6zr5xiS8VbsOOxmjY5nYWZf/a86FXC57uOxI3KscFfMrjwCVhXlxBDeEqyV6Kp257u1wsjLYkungeRyczA6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIIj9C5Sfbe/ndOho11ogO50QZQ2kgcVD7sT56+5gWyqpo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/shibakow
+
+==================================================================
