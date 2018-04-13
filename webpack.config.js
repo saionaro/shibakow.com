@@ -6,7 +6,8 @@ const Webpack = require('webpack'),
    NODE_ENV = process.env.NODE_ENV || 'development',
    CleanWebpackPlugin = require('clean-webpack-plugin'),
    Path = require('path'),
-   FileSystem = require('fs');
+   FileSystem = require('fs'),
+   critical = require('critical');
 
 const pathsToClean = [
    'dist'
@@ -66,12 +67,20 @@ module.exports = {
                      '</body>',
                      yaMetrics + '\n</body>'
                   );
-
                }
                FileSystem.writeFileSync (
                   Path.join(__dirname, 'dist/', htmlFileName),
                   htmlOutput
                );
+               critical.generate({
+                  base: 'dist/',
+                  src: 'index.html',
+                  dest: 'index.html',
+                  extract: true,
+                  inline: true,
+                  minify: true,
+                  css: [`dist/styles.${NODE_ENV === 'production' ? `${stats.hash}.` : ''}css`],
+               });
             }
          });
       }

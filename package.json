@@ -35,6 +35,7 @@
     "webpack-file-changer": "^2.0.1"
   },
   "dependencies": {
-    "babel-preset-env": "^1.6.1"
+    "babel-preset-env": "^1.6.1",
+    "critical": "^1.2.2"
   }
 }
