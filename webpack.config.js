@@ -4,6 +4,7 @@ const Webpack = require('webpack'),
    FileChanger = require('webpack-file-changer'),
    ExtractTextPlugin = require('extract-text-webpack-plugin'),
    NODE_ENV = process.env.NODE_ENV || 'development',
+   isDev = NODE_ENV === 'development',
    CleanWebpackPlugin = require('clean-webpack-plugin'),
    Path = require('path'),
    FileSystem = require('fs'),
@@ -18,28 +19,34 @@ const cleanOptions = {
 };
 
 module.exports = {
+   mode: isDev ? 'development' : 'production',
+   optimization: {
+      namedModules: true,
+      minimize: true,
+      noEmitOnErrors: true,
+      concatenateModules: true
+   },
    entry: {
       app: ['./src/index.js']
    },
    output: {
       path: __dirname + '/dist',
       publicPath: '/dist/',
-      filename: NODE_ENV === 'development' ? '[name].bundle.js' : '[name].bundle.[hash].js',
+      filename: isDev ? '[name].bundle.js' : '[name].bundle.[hash].js',
       library: '[name]',
       libraryTarget: 'var'
    },
    resolve: {
       extensions: ['.js', '.less']
    },
-   watch: NODE_ENV === 'development',
-   devtool: NODE_ENV === 'development' ? 'sheap-inline-module-source-map' : false,
+   watch: isDev,
+   devtool: isDev ? 'sheap-inline-module-source-map' : false,
    plugins: [
       new CleanWebpackPlugin(pathsToClean, cleanOptions),
       new ExtractTextPlugin({
-         filename: NODE_ENV === 'development' ? 'styles.css' : 'styles.[hash].css',
+         filename: isDev ? 'styles.css' : 'styles.[hash].css',
          allChunks: true
       }),
-      new Webpack.NoEmitOnErrorsPlugin(),
       new Webpack.DefinePlugin({
          'process.env': {
             'NODE_ENV': JSON.stringify(NODE_ENV)
@@ -55,7 +62,7 @@ module.exports = {
                      Path.join(__dirname, 'src/' + htmlFileName),
                      'utf8'
                   );
-               if (NODE_ENV === 'production') {
+               if (!isDev) {
                   const yaMetrics = require('./src/metricsScript.js');
                   htmlOutput = htmlOutput.replace (
                      /<script src=(["'])(.+?)bundle\.js/ig,
@@ -79,7 +86,7 @@ module.exports = {
                   extract: true,
                   inline: true,
                   minify: true,
-                  css: [`dist/styles.${NODE_ENV === 'production' ? `${stats.hash}.` : ''}css`],
+                  css: [`dist/styles.${!isDev ? `${stats.hash}.` : ''}css`],
                });
             }
          });
@@ -104,13 +111,3 @@ module.exports = {
       }]
    }
 };
-
-if (NODE_ENV === 'production') {
-   module.exports.plugins.push(new Webpack.optimize.UglifyJsPlugin({
-      compress: {
-         warnings: false,
-         drop_console: true,
-         unsafe: true
-      }
-   }));
-}
