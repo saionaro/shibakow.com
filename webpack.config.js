@@ -1,14 +1,13 @@
-'use strict';
-
-const Webpack = require('webpack'),
-   FileChanger = require('webpack-file-changer'),
-   ExtractTextPlugin = require('extract-text-webpack-plugin'),
-   NODE_ENV = process.env.NODE_ENV || 'development',
-   isDev = NODE_ENV === 'development',
-   CleanWebpackPlugin = require('clean-webpack-plugin'),
-   Path = require('path'),
-   FileSystem = require('fs'),
-   critical = require('critical');
+const Webpack = require('webpack');
+const FileChanger = require('webpack-file-changer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const NODE_ENV = process.env.NODE_ENV || 'development';
+const isDev = NODE_ENV === 'development';
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const Path = require('path');
+const FileSystem = require('fs');
+const critical = require('critical');
 
 const pathsToClean = [
    'dist'
@@ -43,9 +42,8 @@ module.exports = {
    devtool: isDev ? 'sheap-inline-module-source-map' : false,
    plugins: [
       new CleanWebpackPlugin(pathsToClean, cleanOptions),
-      new ExtractTextPlugin({
-         filename: isDev ? 'styles.css' : 'styles.[hash].css',
-         allChunks: true
+      new MiniCssExtractPlugin({
+        filename: isDev ? 'styles.css' : 'styles.[hash].css',
       }),
       new Webpack.DefinePlugin({
          'process.env': {
@@ -99,10 +97,12 @@ module.exports = {
          loader: 'babel-loader'
       }, {
          test: /\.css|\.less$/,
-         use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: ['css-loader', 'postcss-loader', 'less-loader']
-         })
+         use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'less-loader'
+         ]
       }, {
          test: /\.svg$/,
          use: [{
