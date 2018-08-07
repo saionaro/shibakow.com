@@ -10,6 +10,7 @@
   "browserslist": "last 3 versions",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^9.1.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -24,6 +25,7 @@
     "image-webpack-loader": "^4.2.0",
     "less": "3.8.0",
     "less-loader": "^4.0.5",
+    "mini-css-extract-plugin": "^0.4.1",
     "postcss": "7.0.2",
     "postcss-loader": "2.1.6",
     "style-loader": "0.21.0",
@@ -31,11 +33,9 @@
     "svgo": "^1.0.3",
     "svgo-loader": "^2.1.0",
     "url-loader": "1.0.1",
-    "webpack": "4.16.4",
+    "webpack": "4.16.5",
     "webpack-cli": "3.1.0",
     "webpack-file-changer": "^2.0.1"
   },
-  "dependencies": {
-    "autoprefixer": "^9.1.0"
-  }
+  "dependencies": {}
 }
