@@ -1,100 +1,101 @@
 body {
-   font-family: Helvetica, Arial;
-   margin: 0;
-   display: flex;
-   height: 100vh;
+  font-family: Helvetica, Arial;
+  margin: 0;
+  display: flex;
+  height: 100vh;
 }
 
-.wrapper {
-   margin: auto;
+.person {
+  margin: auto;
 }
 
 .head {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .photo {
-   height: 200px;
-   width: 200px;
-
-   &__image {
-      height: 100%;
-      width: 100%;
-      border-radius: 50%;
-   }
+  border-radius: 50%;
 }
 
 .name {
-   font-size: 30px;
+  font-size: 30px;
+  font-weight: 400;
+  margin: 0;
 }
 
 .contacts {
-   width: 90vw;
-   margin: 5vh 0;
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-around;
+  width: 90vw;
+  margin: 5vh 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 
-   &__item {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 12px;
-      margin: 2vh 0;
-      min-width: 220px;
-      cursor: pointer;
-      text-decoration: none;
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px;
+    margin: 2vh 0;
+    min-width: 220px;
+    cursor: pointer;
+    text-decoration: none;
 
-      &--fav {
-         &:after {
-            content: '';
-            align-self: flex-start;
-            background-repeat: no-repeat;
-            background-size: contain;
-            height: 12px;
-            width: 12px;
-            background-image: url('./imgs/fav.svg');
-         }
-      }
-      &:hover {
-         background-color: #f1f1f1;
-      }
-      &:focus {
-         background-color: #f1f1f1;
-      }
-   }
-   &__title {
-      color: #8e8e8e;
-   }
-   &__body {
-      margin-left: 16px;
-      color: #231d1d;
-   }
+    &:hover {
+      background-color: #f1f1f1;
+    }
+    &:focus {
+      background-color: #f1f1f1;
+    }
+  }
+  &__title {
+    color: #8e8e8e;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  &__text {
+    margin: 0;
+  }
+  &__body {
+    margin-left: 16px;
+    color: #231d1d;
+  }
+  &__item--fav {
+    &:after {
+      content: '';
+      align-self: flex-start;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 12px;
+      width: 12px;
+      background-image: url('./imgs/fav.svg');
+    }
+  }
 }
 
 .icon {
-   display: inline-block;
-   background-repeat: no-repeat;
-   background-size: contain;
-   height: 32px;
-   width: 32px;
-   flex-shrink: 0;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 32px;
+  width: 32px;
+  flex-shrink: 0;
 
-   &--telegram {
-      background-image: url('./imgs/telegram.svg');
-   }
-   &--mail {
-      background-image: url('./imgs/gmail.svg');
-   }
-   &--location {
-      background-image: url('./imgs/location.svg');
-   }
-   &--vk {
-      background-image: url('./imgs/vk.svg');
-   }
-   &--github {
-      background-image: url('./imgs/github.svg');
-   }
+  &--telegram {
+    background-image: url('./imgs/telegram.svg');
+  }
+  &--mail {
+    background-image: url('./imgs/gmail.svg');
+  }
+  &--location {
+    background-image: url('./imgs/location.svg');
+  }
+  &--vk {
+    background-image: url('./imgs/vk.svg');
+  }
+  &--github {
+    background-image: url('./imgs/github.svg');
+  }
 }
