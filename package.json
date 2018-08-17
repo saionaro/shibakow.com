@@ -32,7 +32,7 @@
     "svg-url-loader": "^2.3.0",
     "svgo": "^1.0.3",
     "svgo-loader": "^2.1.0",
-    "url-loader": "1.1.0",
+    "url-loader": "1.1.1",
     "webpack": "4.16.5",
     "webpack-cli": "3.1.0",
     "webpack-file-changer": "^2.0.1"
