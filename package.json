@@ -10,7 +10,7 @@
   "browserslist": "last 3 versions",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "9.1.4",
+    "autoprefixer": "9.1.5",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-loader": "8.0.2",
