@@ -1743,7 +1743,7 @@ co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
 
-coa@~2.0.0, coa@~2.0.1:
+coa@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/coa/-/coa-2.0.1.tgz#f3f8b0b15073e35d70263fb1042cb2c023db38af"
   dependencies:
@@ -2080,6 +2080,15 @@ css-select-base-adapter@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/css-select-base-adapter/-/css-select-base-adapter-0.1.0.tgz#0102b3d14630df86c3eb9fa9f5456270106cf990"
 
+css-select@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/css-select/-/css-select-2.0.0.tgz#7aa2921392114831f68db175c0b6a555df74bbd5"
+  dependencies:
+    boolbase "^1.0.0"
+    css-what "2.1"
+    domutils "^1.7.0"
+    nth-check "^1.0.1"
+
 css-select@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/css-select/-/css-select-1.0.0.tgz#b1121ca51848dd264e2244d058cee254deeb44b0"
@@ -2236,7 +2245,7 @@ cssnano@4.1.0:
     is-resolvable "^1.0.0"
     postcss "^6.0.0"
 
-csso@^3.3.1, csso@^3.5.0:
+csso@^3.5.0:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/csso/-/csso-3.5.1.tgz#7b9eb8be61628973c1b261e169d2f024008e758b"
   dependencies:
@@ -2549,7 +2558,7 @@ domutils@1.5, domutils@1.5.1:
     dom-serializer "0"
     domelementtype "1"
 
-domutils@^1.5.1:
+domutils@^1.5.1, domutils@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/domutils/-/domutils-1.7.0.tgz#56ea341e834e06e6748af7a1cb25da67ea9f8c2a"
   dependencies:
@@ -7029,23 +7038,23 @@ svgo-loader@2.2.0:
     js-yaml "^3.12.0"
     loader-utils "^1.0.3"
 
-svgo@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/svgo/-/svgo-1.0.3.tgz#c93be52d98ffa2a7273c7a0ac5bf34f470973dad"
+svgo@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/svgo/-/svgo-1.1.0.tgz#d564c460e9035150702339e11851d47bda1da090"
   dependencies:
-    coa "~2.0.0"
+    coa "~2.0.1"
     colors "~1.1.2"
-    css-select "~1.3.0-rc0"
+    css-select "^2.0.0"
     css-select-base-adapter "~0.1.0"
-    css-tree "1.0.0-alpha25"
+    css-tree "1.0.0-alpha.28"
     css-url-regex "^1.1.0"
-    csso "^3.3.1"
-    js-yaml "~3.10.0"
+    csso "^3.5.0"
+    js-yaml "^3.12.0"
     mkdirp "~0.5.1"
     object.values "^1.0.4"
     sax "~1.2.4"
     stable "~0.1.6"
-    unquote "^1.1.0"
+    unquote "~1.1.1"
     util.promisify "~1.0.0"
 
 svgo@^1.0.0, svgo@^1.0.3:
@@ -7357,7 +7366,7 @@ universalify@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.1.tgz#fa71badd4437af4c148841e3b3b165f9e9e590b7"
 
-unquote@^1.1.0, unquote@~1.1.1:
+unquote@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/unquote/-/unquote-1.1.1.tgz#8fded7324ec6e88a0ff8b905e7c098cdc086d544"
 
