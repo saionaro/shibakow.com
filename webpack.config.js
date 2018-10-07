@@ -9,6 +9,9 @@ const Path = require('path');
 const FileSystem = require('fs');
 const critical = require('critical');
 
+const includeAnalititcs = !!process.env.ENABLE_ANALITITCS;
+const includeMetrics = !!process.env.ENABLE_METRICS;
+
 const pathsToClean = [
   'dist'
 ];
@@ -62,17 +65,26 @@ module.exports = {
             );
           if (!isDev) {
             const yaMetrics = require('./src/metricsScript.js');
+            const analitics = require('./src/analiticsScript.js');
             htmlOutput = htmlOutput.replace (
               /<script src=(["'])(.+?)bundle\.js/ig,
               '<script src=$1$2bundle\.' + stats.hash + '\.js'
             ).replace (
               /<link rel="stylesheet" href=(["'])(.+?)\.css/,
               '<link rel="stylesheet" href="$2.' + stats.hash + '\.css'
-            )
-            .replace (
-              '</body>',
-              yaMetrics + '\n</body>'
             );
+            if (includeAnalititcs) {
+              htmlOutput = htmlOutput.replace (
+                '</body>',
+                analitics + '\n</body>'
+              );
+            }
+            if (includeMetrics) {
+              htmlOutput = htmlOutput.replace (
+                '</body>',
+                yaMetrics + '\n</body>'
+              );
+            }
           }
           FileSystem.writeFileSync (
             Path.join(__dirname, 'dist/', htmlFileName),

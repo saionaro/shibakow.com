@@ -4,18 +4,16 @@
   "description": "",
   "main": " ",
   "scripts": {
-    "build": "cross-env NODE_ENV='production' webpack --mode production"
+    "build": "cross-env NODE_ENV='production' ENABLE_ANALITITCS=true webpack --mode production"
   },
   "author": "Saionaro",
   "browserslist": "last 3 versions",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "7.1.2",
+    "@babel/preset-env": "7.1.0",
     "autoprefixer": "9.1.5",
-    "babel-cli": "6.26.0",
-    "babel-core": "6.26.0",
     "babel-loader": "8.0.4",
-    "babel-preset-env": "1.6.1",
-    "babel-preset-stage-0": "6.24.1",
     "clean-webpack-plugin": "0.1.17",
     "critical": "1.3.4",
     "cross-env": "5.1.4",
