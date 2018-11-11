@@ -36,6 +36,6 @@
     "webpack-file-changer": "2.0.1"
   },
   "dependencies": {
-    "normalize.css": "8.0.0"
+    "normalize.css": "8.0.1"
   }
 }
