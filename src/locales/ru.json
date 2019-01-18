@@ -1,0 +1,16 @@
+{
+  "lang": "ru",
+  "title": "Артём Шибаков",
+  "description": "Шибаков Артём, разработчик",
+  "name": "Артём Шибаков",
+  "imageAlt": "Фотография",
+  "email": "Электронная почта",
+  "telegram": "Телеграм",
+  "socnetTitle": "ВКонтакте",
+  "socnetVal": "shibakow",
+  "socnetRef": "https://vk.com/shibakow",
+  "socnetIcon": "icon--vk",
+  "locationTitle": "Расположение",
+  "locationVal": "Ярославль, Россия",
+  "locationRef": "https://yandex.ru/maps/16/yaroslavl/"
+}

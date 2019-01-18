@@ -5,6 +5,7 @@ before_install: yarn global add greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
 script:
   - yarn install
+  - yarn lint
   - yarn run build
 after_script: greenkeeper-lockfile-upload
 cache:
