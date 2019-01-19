@@ -2,5 +2,6 @@
 /dist/*.js
 /dist/*.css
 /dist/*.html
+/dist/en
 
 *error.log

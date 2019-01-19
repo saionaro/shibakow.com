@@ -1,0 +1,16 @@
+{
+  "lang": "en",
+  "title": "Artem Shibakov",
+  "description": "Artem Shibakov, Software Developer",
+  "name": "Artem Shibakov",
+  "imageAlt": "Photo",
+  "email": "Email",
+  "telegram": "Telegram",
+  "socnetTitle": "Facebook",
+  "socnetVal": "shibakow",
+  "socnetRef": "https://www.facebook.com/shibakow",
+  "socnetIcon": "icon--fb",
+  "locationTitle": "Location",
+  "locationVal": "Yaroslavl, Russia",
+  "locationRef": "https://www.google.ru/maps/place/yaroslavl"
+}
