@@ -4,9 +4,9 @@ import Html from '../../components/html';
 import { LangContext } from '../../lang-context';
 import './style.less';
 
-export default function Index({ lang }) {
+export default function Index(props) {
   return (
-    <Html lang={lang}>
+    <Html {...props}>
       <LangContext.Consumer>
         {(locale) => (
           <div className="person" itemScope itemType="http://schema.org/Person">

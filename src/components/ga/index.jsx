@@ -8,7 +8,7 @@ const gaString = `window.dataLayer = window.dataLayer || [];
 export default function Ga () {
   return (
     <>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127073868-1"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127073868-1" />
       <script dangerouslySetInnerHTML={{__html: gaString}} />
     </>
   );
