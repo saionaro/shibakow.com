@@ -47,7 +47,7 @@
     "stylelint": "9.9.0",
     "stylelint-config-recommended": "2.1.0",
     "svg-url-loader": "2.3.2",
-    "svgo": "1.1.1",
+    "svgo": "1.2.0",
     "svgo-loader": "2.2.0",
     "url-loader": "1.1.2",
     "webpack": "4.29.5",
