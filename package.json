@@ -50,7 +50,7 @@
     "svgo": "1.2.0",
     "svgo-loader": "2.2.0",
     "url-loader": "1.1.2",
-    "webpack": "4.29.5",
+    "webpack": "4.29.6",
     "webpack-cli": "3.1.2",
     "webpack-dev-server": "3.2.1"
   },
