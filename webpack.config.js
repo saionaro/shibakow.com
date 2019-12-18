@@ -1,18 +1,12 @@
-const Webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const isDev = NODE_ENV === 'development';
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const Path = require('path');
-
-const pathsToClean = ['dist'];
-
-const cleanOptions = {
-  exclude:  ['manifest.json', 'keybase.txt', 'icons', 'img'],
-};
+const Webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const NODE_ENV = process.env.NODE_ENV || "development";
+const isDev = NODE_ENV === "development";
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const Path = require("path");
 
 module.exports = {
-  mode: isDev ? 'development' : 'production',
+  mode: isDev ? "development" : "production",
   optimization: {
     namedModules: true,
     minimize: false,
@@ -20,53 +14,66 @@ module.exports = {
     concatenateModules: true
   },
   entry: {
-    app: ['./src/index.js']
+    app: ["./src/index.js"]
   },
-  target: isDev ? 'node' : 'web',
+  target: isDev ? "node" : "web",
   output: {
-    path: Path.resolve(__dirname, 'dist'),
-    libraryTarget: 'commonjs2',
-    filename: '[name].bundle.js',
+    path: Path.resolve(__dirname, "dist"),
+    libraryTarget: "commonjs2",
+    filename: "[name].bundle.js"
   },
   devServer: {
-    contentBase: 'dist',
+    contentBase: "dist",
     compress: true,
-    port: 9000,
+    port: 9000
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.less']
+    extensions: [".js", ".jsx", ".less"]
   },
   watch: isDev,
   devtool: false,
   plugins: [
-    new CleanWebpackPlugin(pathsToClean, cleanOptions),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [
+        "!manifest.json",
+        "!keybase.txt",
+        "!icons",
+        "!img"
+      ]
+    }),
     new MiniCssExtractPlugin({
-      filename: 'styles.css',
+      filename: "styles.css"
     }),
     new Webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(NODE_ENV)
+      "process.env": {
+        NODE_ENV: JSON.stringify(NODE_ENV)
       }
     })
   ],
   module: {
-    rules: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader'
-    }, {
-      test: /\.css|\.less$/,
-      use: [
-        MiniCssExtractPlugin.loader,
-        'css-loader',
-        'postcss-loader',
-        'less-loader'
-      ]
-    }, {
-      test: /\.svg$/,
-      use: [{
-        loader: 'svg-url-loader'
-      }]
-    }]
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
+      },
+      {
+        test: /\.css|\.less$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "less-loader"
+        ]
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "svg-url-loader"
+          }
+        ]
+      }
+    ]
   }
 };
