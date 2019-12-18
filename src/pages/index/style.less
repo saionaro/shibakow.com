@@ -1,5 +1,6 @@
 @main-color: #092031;
 @shadow-color: #cccccc;
+@deep-green: #095569;
 
 .person {
   margin: auto;
@@ -39,20 +40,18 @@
     cursor: pointer;
     text-decoration: none;
     border-radius: 8px;
-    transform: scale(1);
     box-shadow: 0 0 0 @shadow-color;
     transition-timing-function: linear;
-    transition-property: transform, box-shadow;
+    transition-property: box-shadow;
     transition-duration: 0.15s;
 
     &:focus,
     &:hover {
       box-shadow: 0 0 10px @shadow-color;
-      transform: scale(1.03);
     }
   }
   &__title {
-    color: #095569;
+    color: @deep-green;
     margin: 0;
     font-size: 16px;
     font-weight: 400;
@@ -67,14 +66,14 @@
   }
   &__item--fav {
     &:after {
-      content: '';
+      content: "";
       align-self: flex-start;
       background-repeat: no-repeat;
       background-size: contain;
       height: 12px;
       width: 12px;
       margin-left: 4px;
-      background-image: url('../../imgs/fav.svg');
+      background-image: url("../../imgs/fav.svg");
     }
   }
 }
@@ -88,21 +87,21 @@
   flex-shrink: 0;
 
   &--telegram {
-    background-image: url('../../imgs/telegram.svg');
+    background-image: url("../../imgs/telegram.svg");
   }
   &--mail {
-    background-image: url('../../imgs/gmail.svg');
+    background-image: url("../../imgs/gmail.svg");
   }
   &--location {
-    background-image: url('../../imgs/location.svg');
+    background-image: url("../../imgs/location.svg");
   }
   &--vk {
-    background-image: url('../../imgs/vk.svg');
+    background-image: url("../../imgs/vk.svg");
   }
   &--fb {
-    background-image: url('../../imgs/facebook.svg');
+    background-image: url("../../imgs/facebook.svg");
   }
   &--github {
-    background-image: url('../../imgs/github.svg');
+    background-image: url("../../imgs/github.svg");
   }
 }
