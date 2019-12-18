@@ -1,4 +1,5 @@
 const Webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const NODE_ENV = process.env.NODE_ENV || "development";
 const isDev = NODE_ENV === "development";
@@ -14,12 +15,12 @@ module.exports = {
     concatenateModules: true
   },
   entry: {
-    app: ["./src/index.js"]
+    app: isDev ? "./src/index.dev.js" : "./src/index.js"
   },
-  target: isDev ? "node" : "web",
+  target: "web",
   output: {
     path: Path.resolve(__dirname, "dist"),
-    libraryTarget: "commonjs2",
+    libraryTarget: isDev ? "umd" : "commonjs2",
     filename: "[name].bundle.js"
   },
   devServer: {
@@ -33,6 +34,7 @@ module.exports = {
   watch: isDev,
   devtool: false,
   plugins: [
+    isDev && new HtmlWebpackPlugin(),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [
         "!manifest.json",
@@ -49,7 +51,7 @@ module.exports = {
         NODE_ENV: JSON.stringify(NODE_ENV)
       }
     })
-  ],
+  ].filter(Boolean),
   module: {
     rules: [
       {
