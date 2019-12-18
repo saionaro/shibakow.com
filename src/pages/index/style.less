@@ -1,5 +1,6 @@
 @main-color: #092031;
 @shadow-color: #cccccc;
+@deep-green: #095569;
 
 .person {
   margin: auto;
@@ -39,20 +40,18 @@
     cursor: pointer;
     text-decoration: none;
     border-radius: 8px;
-    transform: scale(1);
     box-shadow: 0 0 0 @shadow-color;
     transition-timing-function: linear;
-    transition-property: transform, box-shadow;
+    transition-property: box-shadow;
     transition-duration: 0.15s;
 
     &:focus,
     &:hover {
       box-shadow: 0 0 10px @shadow-color;
-      transform: scale(1.03);
     }
   }
   &__title {
-    color: #095569;
+    color: @deep-green;
     margin: 0;
     font-size: 16px;
     font-weight: 400;
