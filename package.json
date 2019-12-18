@@ -4,6 +4,7 @@
   "description": "",
   "main": " ",
   "scripts": {
+    "serve": "yarn build && npx serve dist",
     "build": "yarn build:webpack && yarn build:html",
     "build:html": "node build.js",
     "build:webpack": "cross-env NODE_ENV='production' ENABLE_ANALITITCS=true webpack --mode production",

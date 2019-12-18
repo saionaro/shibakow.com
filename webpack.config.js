@@ -26,7 +26,8 @@ module.exports = {
   devServer: {
     contentBase: "dist",
     compress: true,
-    port: 9000
+    port: 9000,
+    hot: true
   },
   resolve: {
     extensions: [".js", ".jsx", ".less"]
@@ -62,7 +63,10 @@ module.exports = {
       {
         test: /\.css|\.less$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: { hmr: isDev }
+          },
           "css-loader",
           "postcss-loader",
           "less-loader"
