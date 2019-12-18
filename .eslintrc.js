@@ -1,29 +1,27 @@
 module.exports = {
-  "parser": "babel-eslint",
-  "extends": [
+  parser: "babel-eslint",
+  extends: [
     "eslint:recommended",
     "plugin:import/recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
   ],
-  "plugins": [
-    "import",
-    "react"
-  ],
-  "globals": {
-    "Promise": true
+  plugins: ["import", "react"],
+  globals: {
+    Promise: true
   },
-  "rules": {
+  rules: {
     "eol-last": [2],
-    "indent": ["error", 2]
+    indent: ["error", 2]
   },
-  "env": {
-    "browser": true,
-    "node": true
+  env: {
+    browser: true,
+    node: true
   },
-  "settings": {
+  settings: {
     "import/resolver": {
-      "webpack": {
-        "config": "./webpack.config.js"
+      webpack: {
+        config: "./webpack.config.js"
       }
     }
   }

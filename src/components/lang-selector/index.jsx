@@ -1,22 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { LangContext } from '../../lang-context';
-import './style.less';
+import React from "react";
+import PropTypes from "prop-types";
+import { LangContext } from "../../lang-context";
+import "./style.less";
 
-export default function LangSelector () {
+export default function LangSelector() {
   return (
     <LangContext.Consumer>
-      {(locale) => (
+      {locale => (
         <aside className="lang-selector">
           <ul className="lang-selector__list">
-            {locale.lang !== 'en' && (
+            {locale.lang !== "en" && (
               <li className="lang-selector__item">
-                <a className="lang-selector__link" href="/en">en</a>
+                <a className="lang-selector__link" href="/en">
+                  en
+                </a>
               </li>
             )}
-            {locale.lang !== 'ru' && (
+            {locale.lang !== "ru" && (
               <li className="lang-selector__item">
-                <a className="lang-selector__link" href="/">ru</a>
+                <a className="lang-selector__link" href="/">
+                  ru
+                </a>
               </li>
             )}
           </ul>
@@ -29,5 +33,5 @@ export default function LangSelector () {
 LangSelector.propTypes = {
   lang: PropTypes.string.isRequired,
   children: PropTypes.element,
-  includeGa: PropTypes.bool,
+  includeGa: PropTypes.bool
 };

@@ -1,9 +1,9 @@
 module.exports = {
-  to: '/dist/style.css',
+  to: "/dist/style.css",
   plugins: {
     autoprefixer: {
-      cascade: true,
+      cascade: true
     },
-    cssnano: {},
-  },
+    cssnano: {}
+  }
 };
