@@ -19,8 +19,15 @@
 .lang-selector__link {
   text-decoration: none;
   color: #095569;
+  touch-action: manipulation;
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .lang-selector__link {
+    color: #f9f9f9;
   }
 }

@@ -73,10 +73,19 @@ module.exports = {
         ]
       },
       {
-        test: /\.svg$/,
+        test: /fav\.svg$/,
         use: [
           {
             loader: "svg-url-loader"
+          }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        exclude: /fav\.svg$/,
+        use: [
+          {
+            loader: "svg-inline-loader"
           }
         ]
       }

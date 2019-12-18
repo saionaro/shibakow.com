@@ -1,26 +1,27 @@
 @main-color: #092031;
 @shadow-color: #cccccc;
 @deep-green: #095569;
+@light-text: #f9f9f9;
 
 .person {
   margin: auto;
-}
 
-.head {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.photo {
-  border-radius: 50%;
-}
+  &__photo {
+    border-radius: 50%;
+  }
 
-.name {
-  font-size: 30px;
-  font-weight: 400;
-  margin: 0;
-  color: @main-color;
+  &__name {
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0;
+    color: @main-color;
+  }
 }
 
 .contacts {
@@ -50,6 +51,12 @@
       box-shadow: 0 0 10px @shadow-color;
     }
   }
+  &__icon {
+    height: 32px;
+    width: 32px;
+    flex-shrink: 0;
+    color: @main-color;
+  }
   &__title {
     color: @deep-green;
     margin: 0;
@@ -78,30 +85,36 @@
   }
 }
 
-.icon {
-  display: inline-block;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 32px;
-  width: 32px;
-  flex-shrink: 0;
+@media (prefers-color-scheme: dark) {
+  .person__photo {
+    box-shadow: 0 0 10px #010617;
+  }
 
-  &--telegram {
-    background-image: url("../../imgs/telegram.svg");
+  .person__name {
+    color: @light-text;
+    font-weight: 200;
   }
-  &--mail {
-    background-image: url("../../imgs/gmail.svg");
+
+  .contacts__title {
+    color: @light-text;
+    font-weight: 200;
   }
-  &--location {
-    background-image: url("../../imgs/location.svg");
+
+  .contacts__text {
+    color: @light-text;
+    font-weight: 200;
   }
-  &--vk {
-    background-image: url("../../imgs/vk.svg");
+
+  .contacts__item {
+    box-shadow: 0 0 0 0 #1b1b1b;
+
+    &:focus,
+    &:hover {
+      box-shadow: 0 0 0 3px @shadow-color;
+    }
   }
-  &--fb {
-    background-image: url("../../imgs/facebook.svg");
-  }
-  &--github {
-    background-image: url("../../imgs/github.svg");
+
+  .contacts__icon {
+    color: @light-text;
   }
 }
