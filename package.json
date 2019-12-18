@@ -17,6 +17,7 @@
   "browserslist": "last 3 versions",
   "license": "ISC",
   "devDependencies": {
+    "@arkweid/lefthook": "^0.6.7",
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
