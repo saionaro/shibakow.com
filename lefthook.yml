@@ -1,9 +1,14 @@
 pre-commit:
   commands:
-    linter:
+    js-linter:
       files: git diff --name-only @{push}
-      glob: "*.{js,jsx,less}"
-      run: yarn lint {staged_files} --fix && git add {staged_files}
+      glob: "*.{js,jsx}"
+      run: yarn lint:js {staged_files} --fix && git add {staged_files}
+
+    css-linter:
+      files: git diff --name-only @{push}
+      glob: "*.{less}"
+      run: yarn lint:css {staged_files} --fix && git add {staged_files}
 
     prettier:
       files: git diff --name-only @{push}

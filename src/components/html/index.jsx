@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import Head from "../head";
 import Body from "../body";
 import { LangContext, locales } from "../../lang-context";
