@@ -14,7 +14,12 @@ const ICONS = {
   facebook: require("../../imgs/facebook.svg")
 };
 
-const ICON_STYLE = { width: 32, height: 32 };
+const ICON_STYLE = {
+  width: 32,
+  height: 32,
+  overflow: "hidden",
+  display: "block"
+};
 
 const wrapIcon = icon => <SVG src={icon} style={ICON_STYLE} />;
 
