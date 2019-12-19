@@ -14,6 +14,10 @@ const ICONS = {
   facebook: require("../../imgs/facebook.svg")
 };
 
+const ICON_STYLE = { width: 32, height: 32 };
+
+const wrapIcon = icon => <SVG src={icon} style={ICON_STYLE} />;
+
 export default function Index() {
   const locale = useContext(LangContext);
 
@@ -39,9 +43,7 @@ export default function Index() {
           itemProp="email"
           href="mailto:shibakow@gmail.com"
         >
-          <span className="contacts__icon">
-            <SVG src={ICONS.mail} />
-          </span>
+          <span className="contacts__icon">{wrapIcon(ICONS.mail)}</span>
           <div className="contacts__body">
             <h2 className="contacts__title">{locale.email}</h2>
             <p className="contacts__text">shibakow@gmail.com</p>
@@ -54,9 +56,7 @@ export default function Index() {
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
-          <span className="contacts__icon">
-            <SVG src={ICONS.telegram} />
-          </span>
+          <span className="contacts__icon">{wrapIcon(ICONS.telegram)}</span>
           <div className="contacts__body">
             <h2 className="contacts__title">{locale.telegram}</h2>
             <p className="contacts__text">shibakow</p>
@@ -69,9 +69,7 @@ export default function Index() {
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
-          <span className="contacts__icon">
-            <SVG src={ICONS.github} />
-          </span>
+          <span className="contacts__icon">{wrapIcon(ICONS.github)}</span>
           <div className="contacts__body">
             <h2 className="contacts__title">Github</h2>
             <p className="contacts__text">Saionaro</p>
@@ -85,7 +83,7 @@ export default function Index() {
           rel="nofollow noopener noreferrer"
         >
           <span className="contacts__icon">
-            <SVG src={ICONS[locale.socnetIcon]} />
+            {wrapIcon(ICONS[locale.socnetIcon])}
           </span>
           <div className="contacts__body">
             <h2 className="contacts__title">{locale.socnetTitle}</h2>
@@ -98,9 +96,7 @@ export default function Index() {
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
-          <span className="contacts__icon">
-            <SVG src={ICONS.location} />
-          </span>
+          <span className="contacts__icon">{wrapIcon(ICONS.location)}</span>
           <div className="contacts__body">
             <h2 className="contacts__title">{locale.locationTitle}</h2>
             <p className="contacts__text">{locale.locationVal}</p>
