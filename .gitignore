@@ -5,3 +5,4 @@
 /dist/en
 
 *error.log
+yarn.lock
