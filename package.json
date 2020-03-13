@@ -12,7 +12,8 @@
     "lint": "yarn lint:js && yarn lint:css",
     "lint:js": "eslint ./src",
     "lint:css": "stylelint \"src/**/*.less\" --syntax less",
-    "prettier": "prettier src/**/*.js src/**/*.jsx src/**/*.less --write"
+    "prettier": "prettier src/**/*.js src/**/*.jsx src/**/*.less --write",
+    "release": "semantic-release"
   },
   "author": "Saionaro",
   "browserslist": "last 3 versions",
