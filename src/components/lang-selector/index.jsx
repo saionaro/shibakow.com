@@ -33,5 +33,5 @@ export default function LangSelector() {
 LangSelector.propTypes = {
   lang: PropTypes.string.isRequired,
   children: PropTypes.element,
-  includeGa: PropTypes.bool
+  includeGa: PropTypes.bool,
 };

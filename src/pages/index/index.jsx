@@ -5,23 +5,28 @@ import { LangContext } from "../../lang-context";
 
 import "./style.less";
 
+const PHOTO = {
+  JPG: "/img/photo.jpg",
+  WEBP: "/img/photo.webp",
+};
+
 const ICONS = {
   mail: require("../../imgs/gmail.svg"),
   telegram: require("../../imgs/telegram.svg"),
   github: require("../../imgs/github.svg"),
   location: require("../../imgs/location.svg"),
   vk: require("../../imgs/vk.svg"),
-  facebook: require("../../imgs/facebook.svg")
+  facebook: require("../../imgs/facebook.svg"),
 };
 
 const ICON_STYLE = {
   width: 32,
   height: 32,
   overflow: "hidden",
-  display: "block"
+  display: "block",
 };
 
-const wrapIcon = icon => <SVG src={icon} style={ICON_STYLE} />;
+const wrapIcon = (icon) => <SVG src={icon} style={ICON_STYLE} />;
 
 export default function Index() {
   const locale = useContext(LangContext);
@@ -29,14 +34,19 @@ export default function Index() {
   return (
     <div className="person" itemScope itemType="http://schema.org/Person">
       <header className="person__head">
-        <img
-          className="person__photo"
-          itemProp="image"
-          src="/img/photo.jpg"
-          alt={locale.imageAlt}
-          height="200"
-          width="200"
-        />
+        <picture>
+          <source srcSet={PHOTO.WEBP} type="image/webp" />
+          <source srcSet={PHOTO.JPG} type="image/jpeg" />
+          <img
+            src={PHOTO.JPG}
+            alt={locale.imageAlt}
+            height="200"
+            width="200"
+            className="person__photo"
+            itemProp="image"
+          />
+        </picture>
+
         <h1 className="person__name" itemProp="name" title={locale.name}>
           {locale.name}
         </h1>

@@ -18,5 +18,5 @@ export default function Body({ children, includeGa }) {
 
 Body.propTypes = {
   children: PropTypes.element,
-  includeGa: PropTypes.bool
+  includeGa: PropTypes.bool,
 };

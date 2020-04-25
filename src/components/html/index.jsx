@@ -23,5 +23,5 @@ export default function Html({ lang, includeGa, children }) {
 Html.propTypes = {
   lang: PropTypes.string.isRequired,
   children: PropTypes.element,
-  includeGa: PropTypes.bool
+  includeGa: PropTypes.bool,
 };

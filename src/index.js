@@ -6,7 +6,7 @@ import Index from "./pages/index";
 
 import "normalize.css/normalize.css";
 
-const generateWithLocale = locale => {
+const generateWithLocale = (locale) => {
   return `<!doctype HTML>${renderToString(
     <HTML lang={locale} includeGa={true}>
       <Index />
@@ -17,10 +17,10 @@ const generateWithLocale = locale => {
 export const localized = [
   {
     code: "en",
-    content: generateWithLocale("en")
+    content: generateWithLocale("en"),
   },
   {
     code: "ru",
-    content: generateWithLocale("ru")
-  }
+    content: generateWithLocale("ru"),
+  },
 ];
