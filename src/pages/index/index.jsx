@@ -5,6 +5,11 @@ import { LangContext } from "../../lang-context";
 
 import "./style.less";
 
+const PHOTO = {
+  JPG: "/img/photo.jpg",
+  WEBP: "/img/photo.webp"
+};
+
 const ICONS = {
   mail: require("../../imgs/gmail.svg"),
   telegram: require("../../imgs/telegram.svg"),
@@ -29,14 +34,19 @@ export default function Index() {
   return (
     <div className="person" itemScope itemType="http://schema.org/Person">
       <header className="person__head">
-        <img
-          className="person__photo"
-          itemProp="image"
-          src="/img/photo.jpg"
-          alt={locale.imageAlt}
-          height="200"
-          width="200"
-        />
+        <picture>
+          <source srcSet={PHOTO.WEBP} type="image/webp" />
+          <source srcSet={PHOTO.JPG} type="image/jpeg" />
+          <img
+            src={PHOTO.JPG}
+            alt={locale.imageAlt}
+            height="200"
+            width="200"
+            className="person__photo"
+            itemProp="image"
+          />
+        </picture>
+
         <h1 className="person__name" itemProp="name" title={locale.name}>
           {locale.name}
         </h1>
