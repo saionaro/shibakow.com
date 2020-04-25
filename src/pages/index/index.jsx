@@ -7,7 +7,7 @@ import "./style.less";
 
 const PHOTO = {
   JPG: "/img/photo.jpg",
-  WEBP: "/img/photo.webp"
+  WEBP: "/img/photo.webp",
 };
 
 const ICONS = {
@@ -16,17 +16,17 @@ const ICONS = {
   github: require("../../imgs/github.svg"),
   location: require("../../imgs/location.svg"),
   vk: require("../../imgs/vk.svg"),
-  facebook: require("../../imgs/facebook.svg")
+  facebook: require("../../imgs/facebook.svg"),
 };
 
 const ICON_STYLE = {
   width: 32,
   height: 32,
   overflow: "hidden",
-  display: "block"
+  display: "block",
 };
 
-const wrapIcon = icon => <SVG src={icon} style={ICON_STYLE} />;
+const wrapIcon = (icon) => <SVG src={icon} style={ICON_STYLE} />;
 
 export default function Index() {
   const locale = useContext(LangContext);
