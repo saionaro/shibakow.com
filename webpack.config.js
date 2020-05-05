@@ -12,25 +12,25 @@ module.exports = {
     namedModules: true,
     minimize: false,
     noEmitOnErrors: true,
-    concatenateModules: true
+    concatenateModules: true,
   },
   entry: {
-    app: isDev ? "./src/index.dev.js" : "./src/index.js"
+    app: isDev ? "./src/index.dev.js" : "./src/index.js",
   },
   target: "web",
   output: {
     path: Path.resolve(__dirname, "dist"),
     libraryTarget: isDev ? "umd" : "commonjs2",
-    filename: "[name].bundle.js"
+    filename: "[name].bundle.js",
   },
   devServer: {
     contentBase: "dist",
     compress: true,
     port: 9000,
-    hot: true
+    hot: true,
   },
   resolve: {
-    extensions: [".js", ".jsx", ".less"]
+    extensions: [".js", ".jsx", ".less"],
   },
   watch: isDev,
   devtool: false,
@@ -41,54 +41,63 @@ module.exports = {
         "!manifest.json",
         "!keybase.txt",
         "!icons",
-        "!img"
-      ]
+        "!img",
+      ],
     }),
     new MiniCssExtractPlugin({
-      filename: "styles.css"
+      filename: "styles.css",
     }),
     new Webpack.DefinePlugin({
       "process.env": {
-        NODE_ENV: JSON.stringify(NODE_ENV)
-      }
-    })
+        NODE_ENV: JSON.stringify(NODE_ENV),
+      },
+    }),
   ].filter(Boolean),
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loader: "babel-loader",
       },
       {
         test: /\.css|\.less$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: { hmr: isDev }
+            options: { hmr: isDev },
           },
           "css-loader",
           "postcss-loader",
-          "less-loader"
-        ]
+          "less-loader",
+        ],
       },
       {
         test: /fav\.svg$/,
         use: [
           {
-            loader: "svg-url-loader"
-          }
-        ]
+            loader: "svg-url-loader",
+          },
+        ],
       },
       {
         test: /\.svg$/,
         exclude: /fav\.svg$/,
         use: [
           {
-            loader: "svg-inline-loader"
-          }
-        ]
-      }
-    ]
-  }
+            loader: "svg-inline-loader",
+          },
+        ],
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            outputPath: "fonts",
+          },
+        },
+      },
+    ],
+  },
 };

@@ -3,6 +3,7 @@
 /dist/*.css
 /dist/*.html
 /dist/en
+/dist/fonts
 
 *error.log
 yarn.lock
