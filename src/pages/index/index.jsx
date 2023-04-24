@@ -46,7 +46,6 @@ export default function Index() {
             itemProp="image"
           />
         </picture>
-
         <h1 className="person__name" itemProp="name" title={locale.name}>
           {locale.name}
         </h1>
