@@ -38,6 +38,16 @@ jobs:
       - name: Print version
         run: echo ${{ steps.extract_version.outputs.version }}
 
+      - name: src_changed
+        uses: Saionaro/is-changed@v1.1.2
+        with:
+          glob: src
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Print changed
+        run: echo ${{ steps.src_changed.outputs.changed }}
+
+
   release:
     needs: checking
     runs-on: ubuntu-latest
