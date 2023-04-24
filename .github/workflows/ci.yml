@@ -11,69 +11,23 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-      # - run: npm ci
-      # - run: npm run lint
-      - id: extract_version
-        uses: Saionaro/extract-package-version@v1.2.1
-      - run: echo ${{ steps.extract_version.outputs.version }}
-      - id: src_changed
-        uses: Saionaro/is-changed@v1.2.0
-        with:
-          glob: src/**
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Print changed
-        run: echo "${{ steps.src_changed.outputs.changed }}"
-      
-      - name: If true
-        if: ${{ steps.src_changed.outputs.changed == 'true' }}
-        run: echo "true tested"
-
-      - name: If false
-        if: ${{ steps.src_changed.outputs.changed == 'false' }}
-        run: echo "false tested"
-
-
+      - run: npm ci
+      - run: npm run lint
   release:
     needs: checking
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-
-      - name: Cache node modules
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
-      - name: Setup Node.JS
-        uses: actions/setup-node@v3
-        with:
-          always-auth: true
-          node-version: "18.x"
-
-      - name: Install deps
-        run: npm ci
-
-      - name: Disable Lefthook
-        run: echo "::set-env name=LEFTHOOK::0"
-
-      - name: Run build
-        run: npm run build
-
-      - name: Create artifact
-        run: zip -r release.zip ./dist
-
-      - name: Release
-        run: npm run release
+          node-version: 18
+          cache: 'npm'
+      - run: npm ci
+      - run: echo "::set-env name=LEFTHOOK::0"
+      - run: npm run build
+      - run: zip -r release.zip ./dist
+      - run: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
