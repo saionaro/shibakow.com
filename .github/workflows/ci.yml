@@ -17,7 +17,7 @@ jobs:
         uses: Saionaro/extract-package-version@v1.2.1
       - run: echo ${{ steps.extract_version.outputs.version }}
       - id: src_changed
-        uses: Saionaro/is-changed@v1.1.5
+        uses: Saionaro/is-changed@v1.2.0
         with:
           glob: src/**
           token: ${{ secrets.GITHUB_TOKEN }}
