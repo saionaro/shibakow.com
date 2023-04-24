@@ -6,44 +6,21 @@ jobs:
   checking:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-
-      - name: Cache node modules
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
-      - name: Setup Node.JS
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18.x"
-
-      - name: Install deps
-        run: npm ci
-
-      - name: Run linters
-        run: npm run lint
-        
-      - name: Extract version
-        id: extract_version
+          node-version: 18
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint
+      - id: extract_version
         uses: Saionaro/extract-package-version@v1.2.1
-      - name: Print version
-        run: echo ${{ steps.extract_version.outputs.version }}
-
+      - run: echo ${{ steps.extract_version.outputs.version }}
       - name: src_changed
-        uses: Saionaro/is-changed@v1.1.2
+        uses: Saionaro/is-changed@v1.1.3
         with:
           glob: src
           token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Print changed
         run: echo ${{ steps.src_changed.outputs.changed }}
 
