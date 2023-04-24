@@ -50,7 +50,6 @@ export default function Index() {
           {locale.name}
         </h1>
       </header>
-
       <main className="contacts">
         <a
           className="contacts__item"

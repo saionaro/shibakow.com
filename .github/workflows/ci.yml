@@ -19,7 +19,7 @@ jobs:
       - id: src_changed
         uses: Saionaro/is-changed@v1.1.5
         with:
-          glob: src
+          glob: src/**
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Print changed
