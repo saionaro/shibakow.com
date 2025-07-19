@@ -6,8 +6,6 @@ import Telegram from "../assets/telegram.svg";
 import Github from "../assets/github.svg";
 import Mail from "../assets/gmail.svg";
 import Location from "../assets/location.svg";
-import VK from "../assets/vk.svg";
-import Facebook from "../assets/facebook.svg";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -64,21 +62,6 @@ const t = useTranslations(lang);
     </a>
     <a
       class="contacts__item"
-      itemprop="sameAs"
-      href={t("socnetRef")}
-      target="_blank"
-      rel="nofollow noopener noreferrer"
-    >
-      <span class="contacts__icon">
-        {lang == "ru" ? <VK /> : <Facebook />}
-      </span>
-      <div class="contacts__body">
-        <h2 class="contacts__title">{t("socnetTitle")}</h2>
-        <p class="contacts__text">{t("socnetVal")}</p>
-      </div>
-    </a>
-    <a
-      class="contacts__item"
       href={t("locationRef")}
       target="_blank"
       rel="nofollow noopener noreferrer"
@@ -105,6 +88,7 @@ const t = useTranslations(lang);
   .photo {
     display: inline;
     border-radius: 50%;
+    border: 2px solid var(--color-border);
   }
   .name {
     color: var(--color-text);
@@ -131,7 +115,7 @@ const t = useTranslations(lang);
     border-radius: 8px;
     transition-timing-function: linear;
     transition-property: background-color;
-    transition-duration: 0.15s;
+    transition-duration: var(--transition-duration);
   }
   .contacts__item:focus,
   .contacts__item:hover {
@@ -165,10 +149,10 @@ const t = useTranslations(lang);
     align-self: flex-start;
     background-repeat: no-repeat;
     background-size: contain;
+    background-image: url("../assets/fav.svg");
     height: 12px;
     width: 12px;
     margin-left: 4px;
-    background-image: url("../assets/fav.svg");
   }
   @media (max-width: 640px) {
     .root {

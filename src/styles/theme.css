@@ -1,17 +1,24 @@
 :root {
   --color-text: #092031;
   --color-background: #fff;
-  --color-shadow: #cccccc;
-  --color-hover: #010617;
-  --color-active: #010617;
+  --color-border: #e1e5f2;
+  --color-hover: rgba(5, 4, 4, 0.05);
+  --color-active: rgba(0, 0, 0, 0.1);
+  --transition-duration: 0.15s;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --color-text: #f9f9f9;
     --color-background: #1b1b1b;
-    --color-shadow: #010617;
-    --color-hover: #1f1f1f;
-    --color-active: #1f1f1f;
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-hover: rgba(255, 255, 255, 0.1);
+    --color-active: rgba(255, 255, 255, 0.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-duration: 0s;
   }
 }
