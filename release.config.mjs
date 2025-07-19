@@ -18,7 +18,7 @@ export default {
         assets: [
           {
             path: "release.zip",
-            label: "Website Bundle <%= nextRelease.name %>",
+            label: "build_<%= nextRelease.name %>",
           },
         ],
       },
