@@ -21,7 +21,7 @@ export const ui = {
   ru: {
     lang: "ru",
     title: "Артём Шибаков",
-    description: "Шибаков Артём, разработчик",
+    description: "Артём Шибаков, разработчик",
     name: "Артём Шибаков",
     imageAlt: "Артём Шибаков",
     email: "Электронная почта",
