@@ -14,7 +14,6 @@ export const ui = {
     imageAlt: "Artem Shibakov",
     email: "Email",
     telegram: "Telegram",
-    socnetIcon: "facebook",
     locationTitle: "Location",
     locationVal: "Yerevan, Armenia",
     locationRef: "https://www.google.com/maps/place/yerevan",
