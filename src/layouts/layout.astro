@@ -1,0 +1,56 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils.js";
+import LangSelector from "../components/lang-selector.astro";
+import "../styles/global.css";
+import "../styles/theme.css";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8" />
+    <title>{t("title")}</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" sizes="16x16" href="/icons/16.png" />
+    <link rel="icon" sizes="32x32" href="/icons/32.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-icon-180.png"
+    />
+    <meta name="description" content={t("description")} />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <LangSelector />
+    <div class="wrapper">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "JetBrains-Mono";
+    src:
+      url("/fonts/JetBrainsMono-Regular.woff2") format("woff2"),
+      url("/fonts/JetBrainsMono-Regular.woff") format("woff");
+    font-display: swap;
+  }
+</style>
+<style>
+  body {
+    font-family: "JetBrains-Mono", Menlo, monospace;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    background-color: var(--color-background);
+  }
+  .wrapper {
+    margin: auto;
+  }
+</style>

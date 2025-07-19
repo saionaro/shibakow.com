@@ -1,0 +1,15 @@
+{
+   "short_name": "Personal Page",
+   "name": "Artems Shibakov's Personal Page",
+   "background_color": "#fff",
+   "icons": [{
+      "src": "/icons/48.png",
+      "sizes": "48x48"
+   }, {
+      "src": "/icons/32.png",
+      "sizes": "32x32"
+   }, {
+      "src": "/icons/16.png",
+      "sizes": "16x16"
+   }]
+}

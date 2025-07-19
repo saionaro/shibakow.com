@@ -1,0 +1,28 @@
+---
+import { getLangFromUrl } from "../i18n/utils.js";
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<aside class="root">
+  <a class="link" href={lang == "en" ? "/ru" : "/"}>
+    {lang == "en" ? "ru" : "en"}
+  </a>
+</aside>
+
+<style>
+  .root {
+    position: fixed;
+    right: 16px;
+    top: 16px;
+  }
+  .link {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--color-text);
+    touch-action: manipulation;
+  }
+  .link:hover {
+    text-decoration: underline;
+  }
+</style>

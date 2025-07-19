@@ -1,0 +1,182 @@
+---
+import { Picture } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../i18n/utils.js";
+import photo from "../assets/photo.jpg";
+import Telegram from "../assets/telegram.svg";
+import Github from "../assets/github.svg";
+import Mail from "../assets/gmail.svg";
+import Location from "../assets/location.svg";
+import VK from "../assets/vk.svg";
+import Facebook from "../assets/facebook.svg";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="root" itemscope itemtype="http://schema.org/Person">
+  <header class="head">
+    <Picture
+      loading="eager"
+      class="photo"
+      src={photo}
+      formats={["avif", "webp"]}
+      alt={t("imageAlt")}
+      height={200}
+      width={200}
+    />
+    <h1 class="name" itemprop="name" title={t("name")}>
+      {t("name")}
+    </h1>
+  </header>
+  <main class="contacts">
+    <a class="contacts__item" itemprop="email" href="mailto:shibakow@gmail.com">
+      <span class="contacts__icon"><Mail /></span>
+      <div class="contacts__body">
+        <h2 class="contacts__title">{t("email")}</h2>
+        <p class="contacts__text">shibakow@gmail.com</p>
+      </div>
+    </a>
+    <a
+      class="contacts__item contacts__item--fav"
+      itemprop="sameAs"
+      href="https://t.me/shibakow"
+      target="_blank"
+      rel="nofollow noopener noreferrer"
+    >
+      <span class="contacts__icon"><Telegram /></span>
+      <div class="contacts__body">
+        <h2 class="contacts__title">{t("telegram")}</h2>
+        <p class="contacts__text">shibakow</p>
+      </div>
+    </a>
+    <a
+      class="contacts__item"
+      itemprop="sameAs"
+      href="https://github.com/saionaro"
+      target="_blank"
+      rel="nofollow noopener noreferrer"
+    >
+      <span class="contacts__icon"><Github /></span>
+      <div class="contacts__body">
+        <h2 class="contacts__title">Github</h2>
+        <p class="contacts__text">Saionaro</p>
+      </div>
+    </a>
+    <a
+      class="contacts__item"
+      itemprop="sameAs"
+      href={t("socnetRef")}
+      target="_blank"
+      rel="nofollow noopener noreferrer"
+    >
+      <span class="contacts__icon">
+        {lang == "ru" ? <VK /> : <Facebook />}
+      </span>
+      <div class="contacts__body">
+        <h2 class="contacts__title">{t("socnetTitle")}</h2>
+        <p class="contacts__text">{t("socnetVal")}</p>
+      </div>
+    </a>
+    <a
+      class="contacts__item"
+      href={t("locationRef")}
+      target="_blank"
+      rel="nofollow noopener noreferrer"
+    >
+      <span class="contacts__icon"><Location /></span>
+      <div class="contacts__body">
+        <h2 class="contacts__title">{t("locationTitle")}</h2>
+        <p class="contacts__text">{t("locationVal")}</p>
+      </div>
+    </a>
+  </main>
+</div>
+
+<style>
+  .root {
+    display: flex;
+    align-items: center;
+  }
+  .head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .photo {
+    display: inline;
+    border-radius: 50%;
+  }
+  .name {
+    color: var(--color-text);
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 1vw 0 0 0;
+  }
+  .contacts {
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .contacts__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px;
+    margin: 2vh 0;
+    min-width: 220px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 8px;
+    transition-timing-function: linear;
+    transition-property: background-color;
+    transition-duration: 0.15s;
+  }
+  .contacts__item:focus,
+  .contacts__item:hover {
+    background-color: var(--color-hover);
+  }
+  .contacts__item:active {
+    background-color: var(--color-active);
+  }
+  .contacts__icon {
+    color: var(--color-text);
+    height: 32px;
+    width: 32px;
+    flex-shrink: 0;
+  }
+  .contacts__title {
+    color: var(--color-text);
+    margin: 0;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .contacts__text {
+    color: var(--color-text);
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  .contacts__body {
+    margin-left: 16px;
+  }
+  .contacts__item--fav:after {
+    content: "";
+    align-self: flex-start;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 12px;
+    width: 12px;
+    margin-left: 4px;
+    background-image: url("../assets/fav.svg");
+  }
+  @media (max-width: 640px) {
+    .root {
+      display: block;
+      margin-top: 5vh;
+    }
+    .contacts {
+      margin: 5vh 0 10vh 0;
+    }
+  }
+</style>
